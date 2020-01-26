@@ -1,7 +1,8 @@
 {
   "scripts": {
+    "preup": "docker-compose build",
     "up": "docker-compose up -d",
-    "postup": "open http://localhost:10080",
+    "postup": "open https://localhost:10443",
     "down": "docker-compose down"
   }
 }
