@@ -1,11 +1,22 @@
-version: '3'
+version: '3.1'
+
 services:
-  local:
-    build: .
+  nginx:
+    image: nginx:latest
     ports:
-      - 10080:80
-      - 10443:443
+      - "80:80"
     volumes:
-      - ./htdocs:/usr/local/apache2/htdocs/
-      - ./etc/httpd/conf.d/ssl.conf:/etc/httpd/conf.d/ssl.conf
-      - ./certs:/certs
+      - ./volumes/nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./volumes/nginx/usr/share/nginx/html:/usr/share/nginx/html
+  certbot:
+    image: certbot/certbot
+    depends_on:
+      - nginx
+    volumes:
+    - ./volumes/certbot/data/letsencrypt:/data/letsencrypt
+    command: >
+      certonly --webroot
+      --register-unsafely-without-email --agree-tos
+      --webroot-path=/data/letsencrypt
+      --staging
+      -d onlinegeniuses.com -d www.onlinegeniuses.com
