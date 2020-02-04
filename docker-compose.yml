@@ -15,7 +15,7 @@ services:
     volumes:
     - ./volumes/_common/usr/share/nginx/html:/data/letsencrypt
     - ./volumes/certbot/etc/letsencrypt:/etc/letsencrypt
-    command: >
+    command:
       certonly --webroot
       --register-unsafely-without-email --agree-tos
       --webroot-path=/data/letsencrypt
