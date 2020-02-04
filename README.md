@@ -12,7 +12,8 @@ Docker LetsEncrypt Certbot Get Certs Automatically Demo
 3. 验证成功后，certbot会将生成的keys放在指定目录
 4. certbot运行时会先检查keys是否已经存在，是否过期
 
-https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx
+- https://gist.github.com/harryfinn/e36e41cdbfba5a6e1d69d6498a4fc5ee
+- https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx
 
 ```
 npm run up

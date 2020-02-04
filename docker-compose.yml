@@ -11,6 +11,6 @@ services:
       certonly --webroot
       --standalone
       --register-unsafely-without-email --agree-tos
-      --staging
+      --renew-by-default
       -d onlinegeniuses.net -d www.onlinegeniuses.net
       -v
