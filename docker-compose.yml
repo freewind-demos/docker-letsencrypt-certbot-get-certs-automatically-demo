@@ -7,13 +7,13 @@ services:
       - "80:80"
     volumes:
       - ./volumes/nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-      - ./volumes/nginx/usr/share/nginx/html:/usr/share/nginx/html
+      - ./volumes/_common/usr/share/nginx/html:/usr/share/nginx/html
   certbot:
     image: certbot/certbot
     depends_on:
       - nginx
     volumes:
-    - ./volumes/certbot/data/letsencrypt:/data/letsencrypt
+    - ./volumes/_common/usr/share/nginx/html:/data/letsencrypt
     command: >
       certonly --webroot
       --register-unsafely-without-email --agree-tos
