@@ -1,24 +1,16 @@
 version: '3.1'
 
 services:
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./volumes/nginx/etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-      - ./volumes/_common/usr/share/nginx/html:/usr/share/nginx/html
   certbot:
     image: certbot/certbot
-    depends_on:
-      - nginx
+    ports:
+    - "80:80"
     volumes:
-    - ./volumes/_common/usr/share/nginx/html:/data/letsencrypt
     - ./volumes/certbot/etc/letsencrypt:/etc/letsencrypt
     command:
       certonly --webroot
+      --standalone
       --register-unsafely-without-email --agree-tos
-      --webroot-path=/data/letsencrypt
       --staging
       -d onlinegeniuses.net -d www.onlinegeniuses.net
       -v
