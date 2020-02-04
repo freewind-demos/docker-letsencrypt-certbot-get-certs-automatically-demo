@@ -21,3 +21,4 @@ services:
       --webroot-path=/data/letsencrypt
       --staging
       -d onlinegeniuses.net -d www.onlinegeniuses.net
+      -v
