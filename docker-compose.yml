@@ -19,4 +19,4 @@ services:
       --register-unsafely-without-email --agree-tos
       --webroot-path=/data/letsencrypt
       --staging
-      -d onlinegeniuses.com -d www.onlinegeniuses.com
+      -d onlinegeniuses.net -d www.onlinegeniuses.net
