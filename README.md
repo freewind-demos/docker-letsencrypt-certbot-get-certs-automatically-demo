@@ -15,6 +15,16 @@ Docker LetsEncrypt Certbot Get Certs Automatically Demo
 - https://gist.github.com/harryfinn/e36e41cdbfba5a6e1d69d6498a4fc5ee
 - https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx
 
+根据web server和服务器提供相应的命令：
+
+https://certbot.eff.org/lets-encrypt/ubuntubionic-other
+
+注意：
+- `--standalone`: 让web server停止运行
+- `--webroot`: 不让web server停止运行
+
+我们这个命令为了简单起见，使用的是`--standalone`，需要先把web server关掉，释放80端口
+
 ```
 npm run up
 ```
@@ -113,3 +123,5 @@ $ tree .
 
 28 directories, 22 files
 ```
+
+然后把`/volumes/certbot/etc/letsencrypt/live`下产生的文件copy到真正的地方

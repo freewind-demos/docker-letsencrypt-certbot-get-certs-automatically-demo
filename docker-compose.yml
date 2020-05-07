@@ -8,7 +8,7 @@ services:
     volumes:
     - ./volumes/certbot/etc/letsencrypt:/etc/letsencrypt
     command:
-      certonly --webroot
+      certonly
       --standalone
       --register-unsafely-without-email --agree-tos
       --renew-by-default
